@@ -54,10 +54,10 @@ $up_url=($up_dir!=''&&$up_dir!='.')?$self.'?dir='.rawurlencode($up_dir):$self;
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <title><?php print$current_dir_name==''?$sitename:$current_dir_name?></title>
 <style type="text/css">
-body { font-family: verdana, arial, tahoma; font-size: 1.0em; color: black; padding-top: 8px; cursor: default; background-color: #fff; }
+body { font-family: verdana, arial, tahoma; font-size: 0.9em; color: black; padding-top: 8px; cursor: default; background-color: #fff; }
 #idx { border: 3px solid #fff; width: 700px; }
 #idx td.center { text-align: center; }
-#idx td { border-bottom: 1px solid #f0f0f0; width: 400px; }
+#idx td { border-bottom: 1px solid #f0f0f0; width: 480px; }
 #idx img { margin-bottom: -2px; }
 #idx table { color: #606060; width: 100%; margin-top:3px; }
 #idx span.link { color: #0066DF; cursor: pointer; }
@@ -150,7 +150,7 @@ window.onload=function()
 <body>
     <center>
         <div id="idx"><!-- do not remove --></div><br />
-        <div style="font-size:small"><a href="https://github.com/nerun/php-directory-indexer" target="_blank">
+        <div style="font-size:0.75em"><a href="https://github.com/nerun/php-directory-indexer" target="_blank">
         PHP Directory Indexer on GitHub</a></div>
     </center>
 </body>
