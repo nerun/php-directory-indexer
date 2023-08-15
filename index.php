@@ -148,6 +148,8 @@ window.onload=function()
 </script>
 </head>
 <body>
-    <center><div id="idx"><!-- do not remove --></div></center>
+    <center><div id="idx"><!-- do not remove --></div></center><br />
+    <center><span style="font-size:small"><a href="https://github.com/nerun/php-directory-indexer" target="_blank">
+    PHP Directory Indexer on GitHub</a></center>
 </body>
 </html>
