@@ -1,6 +1,6 @@
 # PHP Directory Indexer
 
-This is a fork of [Celeron Dude Indexer](https://gitlab.com/desbest/celeron-dude-indexer) (Jan 18, 2005) by [desbest](https://gitlab.com/desbest), but with many improvements.
+This is a fork of [Celeron Dude's Indexer v2.0](https://web.archive.org/web/20130402100320/http://www.celerondude.com/php-indexer) (January 18, 2005), but with a few improvements. Thanks to [desbest](https://gitlab.com/desbest) for keeping it alive in [GitLab](https://gitlab.com/desbest/celeron-dude-indexer).
 
 ## Installation
 
