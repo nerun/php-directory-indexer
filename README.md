@@ -2,6 +2,10 @@
 
 This is a fork of [Celeron Dude's Indexer v2.0](https://web.archive.org/web/20130402100320/http://www.celerondude.com/php-indexer) (January 18, 2005), but with a few improvements. Thanks to [desbest](https://gitlab.com/desbest) for keeping it alive in [GitLab](https://gitlab.com/desbest/celeron-dude-indexer).
 
+> @desbest wrote:
+>
+> _[Celeron Dude](https://web.archive.org/web/20070205204609/http://celerondude.com/) was influential within the PHP scene back in the day. It's a shame that he quit. He [ragequit](https://web.archive.org/web/20070203064149/http://celerondude.com/) as he got sick of his uploader script being nulled (or cracked) to appear on the piracy (or warez) websites. The forum will explain more._
+
 ## Installation
 
   - `index.php` — is the main file and, technically, that's all you need.
