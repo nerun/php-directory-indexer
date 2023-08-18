@@ -22,21 +22,33 @@ if(file_exists('index_theme.php'))
     }
 }
 
-// Locales (do nothing)
-setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-date_default_timezone_set('America/Sao_Paulo');
+// TRANSLATE HERE
+$IndexOf='Índice de';
+$DirDontExist='Diretório não existe';
 
 // Start configs
 $self = basename(isset($_SERVER['SCRIPT_FILENAME']) ? $_SERVER['SCRIPT_FILENAME'] : __FILE__);
-$sitename='Índice de /';
 $date='Y-m-d H:i'; // date format
-$ignore=array('.','..','background_default.jpg','background.jpg','.htaccess','icon_encoder.php','index.php','index_theme_default.php','index_theme.php','securityoff.htaccess','Thumbs.db',$self); // ignore these files
+$ignore=array('.','..',
+              'background_default.jpg',
+              'background.jpg',
+              'error_log',
+              'favicon.ico',
+              '.htaccess',
+              'icon_encoder.php',
+              'index.php',
+              'index_theme_default.php',
+              'index_theme.php',
+              'securityoff.htaccess',
+              'Thumbs.db',
+              $self); // ignore these files
 // End configs
 $root=dirname(__FILE__);
 $dir=isset($_GET['dir'])?$_GET['dir']:'';if(strstr($dir,'..'))$dir='';
 $path="$root/$dir/";
 $dirs=$files=array();
-if(!is_dir($path)||false==($h=opendir($path)))exit('Diretório não existe.');
+$sitename=$IndexOf . ' /' . basename($root);
+if(!is_dir($path)||false==($h=opendir($path)))exit($DirDontExist . '.');
 while(false!==($f=readdir($h)))
 {
     if(in_array($f,$ignore))continue;
@@ -52,6 +64,7 @@ $up_url=($up_dir!=''&&$up_dir!='.')?$self.'?dir='.rawurlencode($up_dir):$self;
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
 <title><?php print$current_dir_name==''?$sitename:$current_dir_name?></title>
 <style type="text/css">
 body { font-family: verdana, arial, tahoma; font-size: 0.9em; color: black; padding-top: 8px; cursor: default; background-color: #fff; }
@@ -98,7 +111,7 @@ function _srt(c){switch(c){case'type':_sort='type';_files.sort(_sb);if(_sdir['ty
 
 // TRANSLATE HERE ==============================================================
 var Back        = 'Voltar';
-var ObjectsHere = 'objetos nesta pasta';
+var ObjectsHere = 'itens nesta pasta';
 var InTotal     = 'no total';
 var Sort        = 'Ordenar';
 var Name        = 'Nome';
@@ -150,7 +163,7 @@ window.onload=function()
 <body>
     <center>
         <div id="idx"><!-- do not remove --></div><br />
-        <div style="font-size:0.75em">[<a href="https://github.com/nerun/php-directory-indexer" target="_blank">PHP Directory Indexer on GitHub</a>] [<a href="icon_encoder.php" target="_blank">Icon Encoder</a>]</div>
+        <div style="font-size:0.75em;">[<a href="https://github.com/nerun/php-directory-indexer" target="_blank">PHP Directory Indexer on GitHub</a>] [<a href="icon_encoder.php" target="_blank">Icon Encoder</a>]</div>
     </center>
 </body>
 </html>

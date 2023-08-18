@@ -19,26 +19,40 @@ Put the files you wish inside your folder.
 
 ### Ignore files
 
-To add more files to be ignored by indexer, open `index.php` and edit line 33:
+To add more files to be ignored by indexer, open `index.php` and edit lines 32-44:
 
 ```
-$ignore=array('.','..','background_default.jpg','background.jpg','.htaccess','icon_encoder.php','index.php','index_theme_default.php','index_theme.php','securityoff.htaccess','Thumbs.db',$self); // ignore these files
+$ignore=array('.','..',
+              'background_default.jpg',
+              'background.jpg',
+              'error_log',
+              'favicon.ico',
+              '.htaccess',
+              'icon_encoder.php',
+              'index.php',
+              'index_theme_default.php',
+              'index_theme.php',
+              'securityoff.htaccess',
+              'Thumbs.db',
+              $self); // ignore these files
 ```
 
 ### Translation
 
 It's in Brazilian Portuguese, BUT it's easy to translate:
 
-Open `index.php` and translate line 31:
+Open `index.php` and translate lines 25-27:
 ```
-$sitename='Índice de /';
+// TRANSLATE HERE
+$IndexOf='Índice de';
+$DirDontExist='Diretório não existe';
 ```
 
-Also translate lines 99-110:
+Also translate lines 112-123:
 ```
 // TRANSLATE HERE ==============================================================
 var Back        = 'Voltar';
-var ObjectsHere = 'objetos nesta pasta';
+var ObjectsHere = 'itens nesta pasta';
 var InTotal     = 'no total';
 var Sort        = 'Ordenar';
 var Name        = 'Nome';
@@ -71,4 +85,7 @@ But, when you finish, better change to:
 header('Cache-control: max-age=2592000');
 header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T',time()+2592000));
 ```
+
+You can add a custom favicon.ico to the indexed folder too.
+
 That's all folks!
