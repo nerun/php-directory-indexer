@@ -150,8 +150,7 @@ window.onload=function()
 <body>
     <center>
         <div id="idx"><!-- do not remove --></div><br />
-        <div style="font-size:0.75em"><a href="https://github.com/nerun/php-directory-indexer" target="_blank">
-        PHP Directory Indexer on GitHub</a></div>
+        <div style="font-size:0.75em">[<a href="https://github.com/nerun/php-directory-indexer" target="_blank">PHP Directory Indexer on GitHub</a>] [<a href="icon_encoder.php" target="_blank">Icon Encoder</a>]</div>
     </center>
 </body>
 </html>
