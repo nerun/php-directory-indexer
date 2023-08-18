@@ -11,7 +11,7 @@ This is a fork of [Celeron Dude's Indexer v2.0](https://web.archive.org/web/2013
   - `index.php` — is the main file and, technically, that's all you need.
   - `index_theme.php` — is the default icon theme: it includes icons for many different file extensions. it' a copy of Linux Mint-Y 16 pixels mimetypes icons. Folder is Mint-Y-Sand. If you do not use this file, the index will load just 2 icons: unknown file type and a folder, extracted from Apache Fancyindex. By default this file is not listed by the indexer.
   - `background.jpg` — if not used the background will be white. By default this file is not listed by the indexer.
-  - `icon base64 encoder.php` — it's a tool to easy encode icons to base64, the format used in index_theme. By default this file _is listed_ by the indexer. Open it, select an image, encode it, and read instructions.
+  - `icon_encoder.php` — it's a tool to easy encode icons to base64, the format used in index_theme. By default this file is not listed by the indexer. Open it, select an image, encode it, and read instructions.
 
 Put the files you wish inside your folder.
 
@@ -22,7 +22,7 @@ Put the files you wish inside your folder.
 To add more files to be ignored by indexer, open `index.php` and edit line 33:
 
 ```
-$ignore=array('.','..','.htaccess','background.jpg','background_default.jpg','index.php','index_theme.php','index_theme_default.php','Thumbs.db',$self); // ignore these files
+$ignore=array('.','..','background_default.jpg','background.jpg','.htaccess','icon_encoder.php','index.php','index_theme_default.php','index_theme.php','securityoff.htaccess','Thumbs.db',$self); // ignore these files
 ```
 
 ### Translation
@@ -52,7 +52,7 @@ var Next        = 'seguinte';
 
 ## Custom themes creation
 
-Rename `index_theme.php` to `index_theme_default.php` (indexer do not list this name too). Clone it with name `index_theme.php`. Start editing. Use `icon base64 encoder.php` to encode the icons (16 x 16 px) you wish for your theme. Read encoder instructions. Add a new background image if you wish: rename the old one to `background_default.jpg` (also not indexed).
+Rename `index_theme.php` to `index_theme_default.php` (indexer do not list this name too). Clone it with name `index_theme.php`. Start editing. Use `icon_encoder.php` to encode the icons (16 x 16 px) you wish for your theme. Read encoder instructions. Add a new background image if you wish: rename the old one to `background_default.jpg` (also not indexed).
 
 These lines are usefull to test icons:
 ```

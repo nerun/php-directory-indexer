@@ -30,7 +30,7 @@ date_default_timezone_set('America/Sao_Paulo');
 $self = basename(isset($_SERVER['SCRIPT_FILENAME']) ? $_SERVER['SCRIPT_FILENAME'] : __FILE__);
 $sitename='Índice de /';
 $date='Y-m-d H:i'; // date format
-$ignore=array('.','..','.htaccess','securityoff.htaccess','background.jpg','background_default.jpg','index.php','index_theme.php','index_theme_default.php','Thumbs.db',$self); // ignore these files
+$ignore=array('.','..','background_default.jpg','background.jpg','.htaccess','icon_encoder.php','index.php','index_theme_default.php','index_theme.php','securityoff.htaccess','Thumbs.db',$self); // ignore these files
 // End configs
 $root=dirname(__FILE__);
 $dir=isset($_GET['dir'])?$_GET['dir']:'';if(strstr($dir,'..'))$dir='';
