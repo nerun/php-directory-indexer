@@ -27,7 +27,6 @@ $ignore=array('.','..',
               'error_log',
               'favicon.ico',
               '.htaccess',
-              'icon_encoder.php',
               'index_conf',
               'index.php',
               'securityoff.htaccess',
@@ -69,11 +68,11 @@ Clone any theme in `index_conf/themes`. Start editing. Click in the "[Icon Encod
 Open `index.php` and update theme and background:
 ```
 <?php
-$_DefaultTheme='mint-y-sand.php'; // don't forget extension ".php"!
+$_Theme='mint-y-sand.php'; // don't forget extension ".php"!
 $_Background='default.jpg';
 ```
 
-At the end of each theme.php file these lines were added because they are useful for testing icons:
+At the end of each theme.php file these lines were added because they are useful for testing icons (so icons are not cached):
 ```
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);

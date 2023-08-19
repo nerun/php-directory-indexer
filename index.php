@@ -1,10 +1,10 @@
 <?php
-$_DefaultTheme='mint-y-sand.php'; // don't forget extension ".php"!
+$_Theme='mint-y-sand.php'; // don't forget extension ".php"!
 $_Background='default.jpg';
 
-if(file_exists('index_conf/themes/' . $_DefaultTheme))
+if(file_exists('index_conf/themes/' . $_Theme))
 {
-    include 'index_conf/themes/' . $_DefaultTheme;
+    include 'index_conf/themes/' . $_Theme;
 } else {
     @ob_start('ob_gzhandler');
     if(isset($_GET['icon']))
