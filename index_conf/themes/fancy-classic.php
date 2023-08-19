@@ -73,7 +73,7 @@ if(isset($_GET['icon']))
     A13tNcLaSwe7MpxCVe6t7O1vrpEghvr83Nmw70dzfVVxTnpKYirS5PjQ92tzXWlhVlpSbGIc+PDvV0t9VUlBXkpCRFBiKPKf/NFHP6HHogd7Q1VJ
     YW5GQkRIX5ebg6ILfS/QDlFmealrGyDWFdZkp2eFBUa4O3hbG9pilimnKkcp8zkRJchYkFmSmxEWKCHi72NqZG+LmJGYkxokCc1S2raGogg/BdQp
     Cn/j+I3EE1PsJiz0vwAAAAASUVORK5CYII=';
-    $I['txt']=$I['c']=$I['cc']=$I['cp']=$I['html']=$I['htm']=$I['tex']=$I['md']=$I['py']=$I['sh']=
+    $I['txt']=$I['c']=$I['cc']=$I['cpp']=$I['html']=$I['htm']=$I['tex']=$I['md']=$I['py']=$I['sh']=
     'R0lGODlhFAAWAMIAAP///8z//5mZmTMzMwAAAAAAAAAAAAAAACH+TlRoaXMgYXJ0IGlzIGluIHRoZSBwdWJsaWMgZG9tYWluLiBLZXZpbiBIdWd
     oZXMsIGtldmluaEBlaXQuY29tLCBTZXB0ZW1iZXIgMTk5NQAh+QQBAAABACwAAAAAFAAWAAADWDi6vPEwDECrnSO+aTvPEddVIriN1wVxROtSxBD
     PJwq7bo23luALhJqt8gtKbrsXBSgcEo2spBLAPDp7UKT02bxWRdrp94rtbpdZMrrr/A5+8LhPFpHajQkAOw==';
