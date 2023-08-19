@@ -1,7 +1,10 @@
 <?php
-if(file_exists('index_theme.php'))
+$_DefaultTheme='mint-y-sand.php'; // don't forget extension ".php"!
+$_Background='default.jpg';
+
+if(file_exists('index_conf/themes/' . $_DefaultTheme))
 {
-    include 'index_theme.php';
+    include 'index_conf/themes/' . $_DefaultTheme;
 } else {
     @ob_start('ob_gzhandler');
     if(isset($_GET['icon']))
@@ -30,15 +33,11 @@ $DirDontExist='Diretório não existe';
 $self = basename(isset($_SERVER['SCRIPT_FILENAME']) ? $_SERVER['SCRIPT_FILENAME'] : __FILE__);
 $date='Y-m-d H:i'; // date format
 $ignore=array('.','..',
-              'background_default.jpg',
-              'background.jpg',
               'error_log',
               'favicon.ico',
               '.htaccess',
-              'icon_encoder.php',
+              'index_conf',
               'index.php',
-              'index_theme_default.php',
-              'index_theme.php',
               'securityoff.htaccess',
               'Thumbs.db',
               $self); // ignore these files
@@ -67,7 +66,18 @@ $up_url=($up_dir!=''&&$up_dir!='.')?$self.'?dir='.rawurlencode($up_dir):$self;
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <title><?php print$current_dir_name==''?$sitename:$current_dir_name?></title>
 <style type="text/css">
-body { font-family: verdana, arial, tahoma; font-size: 0.9em; color: black; padding-top: 8px; cursor: default; background-color: #fff; }
+body {
+    font-family: verdana, arial, tahoma;
+    font-size: 0.9em;
+    color: black;
+    padding-top: 8px;
+    cursor: default;
+    background-color: #fff;
+    background-image: url(<?php print "index_conf/img/$_Background"?>);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
 #idx { border: 3px solid #fff; width: 700px; }
 #idx td.center { text-align: center; }
 #idx td { border-bottom: 1px solid #f0f0f0; width: 480px; }
@@ -84,12 +94,6 @@ body { font-family: verdana, arial, tahoma; font-size: 0.9em; color: black; padd
 #idx a:visited { color: #003366; }
 #idx a:hover   { text-decoration: none; }
 #idx a:active  { color: #9DCC00; }
-body {
-    background-image: url('background.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-}
 </style>
 
 <script type="text/javascript">
@@ -113,7 +117,7 @@ function _srt(c){switch(c){case'type':_sort='type';_files.sort(_sb);if(_sdir['ty
 var Back        = 'Voltar';
 var ObjectsHere = 'itens nesta pasta';
 var InTotal     = 'no total';
-var Sort        = 'Ordenar';
+var Sort        = 'Ordenar por';
 var Name        = 'Nome';
 var Type        = 'Tipo';
 var Size        = 'Tamanho';
@@ -163,7 +167,7 @@ window.onload=function()
 <body>
     <center>
         <div id="idx"><!-- do not remove --></div><br />
-        <div style="font-size:0.75em;">[<a href="https://github.com/nerun/php-directory-indexer" target="_blank">PHP Directory Indexer on GitHub</a>] [<a href="icon_encoder.php" target="_blank">Icon Encoder</a>]</div>
+        <div style="font-size:0.75em;">[<a href="https://github.com/nerun/php-directory-indexer" target="_blank">PHP Directory Indexer on GitHub</a>] [<a href="index_conf/icon_encoder.php" target="_blank">Icon Encoder</a>]</div>
     </center>
 </body>
 </html>

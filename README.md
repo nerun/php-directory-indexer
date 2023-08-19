@@ -8,30 +8,28 @@ This is a fork of [Celeron Dude's Indexer v2.0](https://web.archive.org/web/2013
 
 ## Installation
 
+  - `index_conf/` — configuration folder for index.php (it's not indexed, it's hidden).
+    - `themes` — themes folder.
+    - `img` — background images folder.
+    - `icon_encoder.php` — it's a tool to easy encode icons to base64, the format used in index themes. There is a link to it below file listing "[Icon Encoder]". Open it, select an image, encode it, and read instructions.
   - `index.php` — is the main file and, technically, that's all you need.
-  - `index_theme.php` — is the default icon theme: it includes icons for many different file extensions. it' a copy of Linux Mint-Y 16 pixels mimetypes icons. Folder is Mint-Y-Sand. If you do not use this file, the index will load just 2 icons: unknown file type and a folder, extracted from Apache Fancyindex. By default this file is not listed by the indexer.
-  - `background.jpg` — if not used the background will be white. By default this file is not listed by the indexer.
-  - `icon_encoder.php` — it's a tool to easy encode icons to base64, the format used in index_theme. By default this file is not listed by the indexer. Open it, select an image, encode it, and read instructions.
 
-Put the files you wish inside your folder.
+Put the files you wish inside the folder to be indexed. You can add just `index.php`.
 
 ## Customization
 
 ### Ignore files
 
-To add more files to be ignored by indexer, open `index.php` and edit lines 32-44:
+To add more files to be ignored by indexer, open `index.php` and edit lines 35-44:
 
 ```
 $ignore=array('.','..',
-              'background_default.jpg',
-              'background.jpg',
               'error_log',
               'favicon.ico',
               '.htaccess',
               'icon_encoder.php',
+              'index_conf',
               'index.php',
-              'index_theme_default.php',
-              'index_theme.php',
               'securityoff.htaccess',
               'Thumbs.db',
               $self); // ignore these files
@@ -41,20 +39,20 @@ $ignore=array('.','..',
 
 It's in Brazilian Portuguese, BUT it's easy to translate:
 
-Open `index.php` and translate lines 25-27:
+Open `index.php` and translate lines 28-30:
 ```
 // TRANSLATE HERE
 $IndexOf='Índice de';
 $DirDontExist='Diretório não existe';
 ```
 
-Also translate lines 112-123:
+Also translate lines 117-128:
 ```
 // TRANSLATE HERE ==============================================================
 var Back        = 'Voltar';
 var ObjectsHere = 'itens nesta pasta';
 var InTotal     = 'no total';
-var Sort        = 'Ordenar';
+var Sort        = 'Ordenar por';
 var Name        = 'Nome';
 var Type        = 'Tipo';
 var Size        = 'Tamanho';
@@ -66,9 +64,16 @@ var Next        = 'seguinte';
 
 ## Custom themes creation
 
-Rename `index_theme.php` to `index_theme_default.php` (indexer do not list this name too). Clone it with name `index_theme.php`. Start editing. Use `icon_encoder.php` to encode the icons (16 x 16 px) you wish for your theme. Read encoder instructions. Add a new background image if you wish: rename the old one to `background_default.jpg` (also not indexed).
+Clone any theme in `index_conf/themes`. Start editing. Click in the "[Icon Encoder]" link to `icon_encoder.php`, to start encoding the icons you wish for your theme. Size of 16 x 16 px is the best, but 20 x 22 is ok. Read encoder instructions. To add a new background image put it in `index_conf/img`.
 
-These lines are usefull to test icons:
+Open `index.php` and update theme and background:
+```
+<?php
+$_DefaultTheme='mint-y-sand.php'; // don't forget extension ".php"!
+$_Background='default.jpg';
+```
+
+At the end of each theme.php file these lines were added because they are useful for testing icons:
 ```
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
@@ -86,6 +91,6 @@ header('Cache-control: max-age=2592000');
 header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T',time()+2592000));
 ```
 
-You can add a custom favicon.ico to the indexed folder too.
+You can add a custom `favicon.ico` to the indexed folder too (not inside `index_conf/themes`, but in root, together with `index.php`).
 
 That's all folks!
