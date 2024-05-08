@@ -68,7 +68,8 @@ Clone any theme in `index_conf/themes`. Start editing. Click in the "[Icon Encod
 Open `index.php` and update theme and background:
 ```
 <?php
-$_Theme='mint-y-sand.php'; // don't forget extension ".php"!
+$_Theme='mint-y-sand.php';
+//$_Theme='fancy-classic.php';
 $_Background='default.jpg';
 ```
 
