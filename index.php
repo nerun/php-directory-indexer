@@ -1,5 +1,6 @@
 <?php
-$_Theme='mint-y-sand.php'; // don't forget extension ".php"!
+$_Theme='mint-y-sand.php';
+//$_Theme='fancy-classic.php';
 $_Background='default.jpg';
 
 if(file_exists('index_conf/themes/' . $_Theme))
