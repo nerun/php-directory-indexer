@@ -26,6 +26,10 @@ To add more files to be ignored by indexer, open `index.php` and edit lines 35-4
 $ignore=array('.','..',
               'error_log',
               'favicon.ico',
+              '.git',
+              '.gitattributes',
+              '.github',
+              '.gitignore',
               '.htaccess',
               'index_conf',
               'index.php',
@@ -45,7 +49,7 @@ $IndexOf='Índice de';
 $DirDontExist='Diretório não existe';
 ```
 
-Also translate lines 117-128:
+Also translate lines 121-132:
 ```
 // TRANSLATE HERE ==============================================================
 var Back        = 'Voltar';

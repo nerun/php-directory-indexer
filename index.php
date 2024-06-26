@@ -36,6 +36,10 @@ $date='Y-m-d H:i'; // date format
 $ignore=array('.','..',
               'error_log',
               'favicon.ico',
+              '.git',
+              '.gitattributes',
+              '.github',
+              '.gitignore',
               '.htaccess',
               'index_conf',
               'index.php',
@@ -169,6 +173,7 @@ window.onload=function()
     <center>
         <div id="idx"><!-- do not remove --></div><br />
         <div style="font-size:0.75em;">[<a href="https://github.com/nerun/php-directory-indexer" target="_blank">PHP Directory Indexer on GitHub</a>] [<a href="index_conf/icon_encoder.php" target="_blank">Icon Encoder</a>]</div>
+        <div style="font-size:0.75em;">Version 1.0 &ndash; Jun 26, 2024</div>
     </center>
 </body>
 </html>
