@@ -1,7 +1,7 @@
 <?php
 $_Theme='mint-y-sand.php';
 //$_Theme='fancy-classic.php';
-$_Background='default.jpg';
+$_Background='default.webp';
 
 if(file_exists('index_conf/themes/' . $_Theme))
 {
