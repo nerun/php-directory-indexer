@@ -1,21 +1,21 @@
 <?php
 $b64 = '';
 
-if ( !function_exists ( 'file_get_contents' ) )
-{
-    function file_get_contents ( $file )
+if (!function_exists('file_get_contents')) {
+    function file_get_contents($file)
     {
-        $fp = @fopen ( $file, 'rb' );
-        if ( !$fp ) exit ( 'Impossível abrir ' . $file );
-        $data = fread ( $fp, filesize ( $file ) );
-        fclose ( $fp );
+        $fp = @fopen($file, 'rb');
+        if (!$fp) {
+            exit('Impossível abrir ' . $file);
+        }
+        $data = fread($fp, filesize($file));
+        fclose($fp);
         return $data;
     }
 }
 
-if ( isset ( $_FILES['myfile'] ) )
-{
-    $b64 = base64_encode ( file_get_contents ( $_FILES['myfile']['tmp_name'] ) );
+if (isset($_FILES['myfile'])) {
+    $b64 = base64_encode(file_get_contents($_FILES['myfile']['tmp_name']));
 }
 ?>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ if ( isset ( $_FILES['myfile'] ) )
         <input type="submit" value="codificar" />
     </p>
 
-    <?php if ( $b64 != '' ) : ?>
+    <?php if ($b64 != '') : ?>
         <textarea id="encodedicon" rows="12" cols="120" wrap="hard"><?=$b64?></textarea>
 
         <script>
