@@ -1,19 +1,17 @@
 <?php
-$_Theme='mint-y-sand.php';
+$_Theme = 'mint-y-sand.php';
 //$_Theme='fancy-classic.php';
-$_Background='default.webp';
+$_Background = 'default.webp';
 
-if(file_exists('index_conf/themes/' . $_Theme))
-{
+if (file_exists('index_conf/themes/' . $_Theme)) {
     include 'index_conf/themes/' . $_Theme;
 } else {
     @ob_start('ob_gzhandler');
-    if(isset($_GET['icon']))
-    {
-        $e=$_GET['icon'];
-        $I['dir']='R0lGODlhDwAQAMIAAP/////Mmcz//5lmMzMzMwAAAP///////yH5BAEKAAcALAAAAAAPABAAAAM0eLrc/jCeQet4I+gdRvmFQnDk
+    if (isset($_GET['icon'])) {
+        $e = $_GET['icon'];
+        $I['dir'] = 'R0lGODlhDwAQAMIAAP/////Mmcz//5lmMzMzMwAAAP///////yH5BAEKAAcALAAAAAAPABAAAAM0eLrc/jCeQet4I+gdRvmFQnDk
         FmYl6aHptrbuC3fyXLdUweIv6msZz4FgKVIIBAVouUwmAAA7';
-        $I['file']='R0lGODlhDwAQAMIAAP///8z//5mZmTMzMwAAAP///////////yH5BAEKAAcALAAAAAAPABAAAANMOLIsehAKQCuYIp553fhUJl1
+        $I['file'] = 'R0lGODlhDwAQAMIAAP///8z//5mZmTMzMwAAAP///////////yH5BAEKAAcALAAAAAAPABAAAANMOLIsehAKQCuYIp553fhUJl1
         EWQ5BOoxCKQSDaW4XSBLMWAWOy+sAngl1AbYICo6Ic2MWaZbok3l0LitVy1WqlaS+4JTo8CmbPwRIAgA7';
         header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
         header("Cache-Control: post-check=0, pre-check=0", false);
@@ -21,19 +19,19 @@ if(file_exists('index_conf/themes/' . $_Theme))
         //header('Cache-control: max-age=2592000');
         //header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T',time()+2592000));
         header('Content-type: image/gif');
-        print base64_decode(isset($I[$e])?$I[$e]:$I['file']);
+        print base64_decode(isset($I[$e]) ? $I[$e] : $I['file']);
         exit;
     }
 }
 
 // TRANSLATE HERE
-$IndexOf='Índice de';
-$DirDontExist='Diretório não existe';
+$IndexOf = 'Índice de';
+$DirDontExist = 'Diretório não existe';
 
 // Start configs
 $self = basename(isset($_SERVER['SCRIPT_FILENAME']) ? $_SERVER['SCRIPT_FILENAME'] : __FILE__);
-$date='Y-m-d H:i'; // date format
-$ignore=array('.','..',
+$date = 'Y-m-d H:i'; // date format
+$ignore = array('.','..',
               'error_log',
               'favicon.ico',
               '.git',
@@ -47,29 +45,38 @@ $ignore=array('.','..',
               'Thumbs.db',
               $self); // ignore these files
 // End configs
-$root=dirname(__FILE__);
-$dir=isset($_GET['dir'])?$_GET['dir']:'';if(strstr($dir,'..'))$dir='';
-$path="$root/$dir/";
-$dirs=$files=array();
-$sitename=$IndexOf . ' /' . basename($root);
-if(!is_dir($path)||false==($h=opendir($path)))exit($DirDontExist . '.');
-while(false!==($f=readdir($h)))
-{
-    if(in_array($f,$ignore))continue;
-    if(is_dir($path.$f))$dirs[]=array('name'=>$f,'date'=>filemtime($path.$f),'url'=>$self.'?dir='.rawurlencode(trim("$dir/$f",'/')));
-    else$files[]=array('name'=>$f,'size'=>filesize($path.$f),'date'=>filemtime($path.$f),'url'=>trim("$dir/".rawurlencode($f),'/'));
+$root = dirname(__FILE__);
+$dir = isset($_GET['dir']) ? $_GET['dir'] : '';
+if (strstr($dir, '..')) {
+    $dir = '';
+}
+$path = "$root/$dir/";
+$dirs = $files = array();
+$sitename = $IndexOf . ' /' . basename($root);
+if (!is_dir($path) || false == ($h = opendir($path))) {
+    exit($DirDontExist . '.');
+}
+while (false !== ($f = readdir($h))) {
+    if (in_array($f, $ignore)) {
+        continue;
+    }
+    if (is_dir($path.$f)) {
+        $dirs[] = array('name' => $f,'date' => filemtime($path.$f),'url' => $self.'?dir='.rawurlencode(trim("$dir/$f", '/')));
+    } else {
+        $files[] = array('name' => $f,'size' => filesize($path.$f),'date' => filemtime($path.$f),'url' => trim("$dir/".rawurlencode($f), '/'));
+    }
 }
 closedir($h);
 $current_dir_name = basename($dir);
-$up_dir=dirname($dir);
-$up_url=($up_dir!=''&&$up_dir!='.')?$self.'?dir='.rawurlencode($up_dir):$self;
-// END PHP ?>
+$up_dir = dirname($dir);
+$up_url = ($up_dir != '' && $up_dir != '.') ? $self.'?dir='.rawurlencode($up_dir) : $self;
+// END PHP?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
-<title><?php print$current_dir_name==''?$sitename:$current_dir_name?></title>
+<title><?php print$current_dir_name == '' ? $sitename : $current_dir_name?></title>
 <style type="text/css">
 body {
     font-family: verdana, arial, tahoma;
@@ -137,7 +144,7 @@ function _head()
     _tpg=Math.ceil((_files.length+_dirs.length)/_ppg);
     idx.innerHTML='<div class="rounded gray" style="padding:5px 10px 5px 7px;color:#202020">' +
         '<p class="left">' +
-            '<?php print$dir!=''?'<span style="font-size:22px;"><a href="'.$up_url.'" style="text-decoration:none;">&#11178;</a></span>&nbsp;&nbsp;':''?><strong><?php print$current_dir_name==''?$sitename:$current_dir_name?></strong><br />' + (_files.length+_dirs.length) + ' ' + ObjectsHere + ', ' + _s(_tsize) + ' ' + InTotal + '.' +
+            '<?php print$dir != '' ? '<span style="font-size:22px;"><a href="'.$up_url.'" style="text-decoration:none;">&#11178;</a></span>&nbsp;&nbsp;' : ''?><strong><?php print$current_dir_name == '' ? $sitename : $current_dir_name?></strong><br />' + (_files.length+_dirs.length) + ' ' + ObjectsHere + ', ' + _s(_tsize) + ' ' + InTotal + '.' +
         '</p>' +
         '<p class="right">' +
             Sort + ':<br /><span class="link" onmousedown="return _srt(\'name\');" id="sort_name">' + Name + '</span>, <span class="link" onmousedown="return _srt(\'type\');" id="sort_type">'+ Type + '</span>, <span class="link" onmousedown="return _srt(\'size\');" id="sort_size">' + Size + '</span>, <span class="link" onmousedown="return _srt(\'date\');" id="sort_date">' + ModDate + '</span>' +
@@ -159,8 +166,12 @@ function _tbl()
     }
     tbl.innerHTML=html+'</table>';
 }
-<?php foreach($dirs as $d) { print sprintf("_d('%s','%s','%s');\n",addslashes($d['name']),date($date,$d['date']),addslashes($d['url'])); } ?>
-<?php foreach($files as $f) { print sprintf("_f('%s',%d,'%s','%s',%d);\n",addslashes($f['name']),$f['size'],date($date,$f['date']),addslashes($f['url']),$f['date']); } ?>
+<?php foreach ($dirs as $d) {
+    print sprintf("_d('%s','%s','%s');\n", addslashes($d['name']), date($date, $d['date']), addslashes($d['url']));
+} ?>
+<?php foreach ($files as $f) {
+    print sprintf("_f('%s',%d,'%s','%s',%d);\n", addslashes($f['name']), $f['size'], date($date, $f['date']), addslashes($f['url']), $f['date']);
+} ?>
 
 window.onload=function()
 {
